@@ -1,20 +1,20 @@
 public class ContoCorrente {
 
-
+    // variabili che memorizzano il saldo e il numero del conto
     private double saldo;
     private int numero;
 
-
+    // variabile condivisa (inizializzata a 1000)
     private static int numeroUltimoContoCreato = 1000;
 
-
+    //  variabile che memorizza il tipo di conto (family o business)
     private String tipo;
 
-
+    // interesse
     private static final double tassoFamily = 0.01;
     private static final double tassoBusiness = 0.02;
 
-
+    // costruttore che accetta il saldo iniziale e il tipo di conto
     public ContoCorrente(double saldoIniziale, String tipoCliente) {
         saldo = saldoIniziale;
         tipo = tipoCliente;
@@ -22,13 +22,13 @@ public class ContoCorrente {
         numero = numeroUltimoContoCreato;
     }
 
-
+    // metodo per il versamento di somme
     public void deposita(double importo) {
         saldo += importo;
         System.out.println("Versati: " + importo + " euro");
     }
 
-
+    // metodo per il prelievo di somme
     public boolean preleva(double importo) {
         if (saldo < importo) {
             return false;
@@ -62,7 +62,7 @@ public class ContoCorrente {
         return tassoBusiness;
     }
 
-
+    // calcolo interessi
     public void maturaInteressi() {
         if (tipo.equalsIgnoreCase("family")) {
             saldo += saldo * tassoFamily;
